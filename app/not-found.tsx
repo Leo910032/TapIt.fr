@@ -18,6 +18,7 @@ export default function NotFound() {
               width={3980}
               className="h-fit sm:max-w-[22rem] max-w-[80%] object-contain"
             />
+            
           </div>
           <h1 className="text-themeGreen md:text-4xl sm:text-3xl text-2xl text-center font-semibold">Uh oh. Page not found</h1>
           <p className="sm:text-lg opacity-60 my-2 text-center">Sorry, the page you were looking for doesn&apos;t exist or has been hidden.</p>
