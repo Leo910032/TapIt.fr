@@ -64,18 +64,21 @@ export default function ProfilePic({userId}) {
         const observer = new IntersectionObserver(intersectionCallback, {
             threshold: 0.5,
         });
-
-        if (profilePicRef.current) {
-            observer.observe(profilePicRef.current);
+        
+        // Get a reference to the current DOM node
+        const currentRef = profilePicRef.current;
+        
+        if (currentRef) {
+            observer.observe(currentRef);
         }
-
+        
         return () => {
-            if (profilePicRef.current) {
-                observer.unobserve(profilePicRef.current);
+            // Use the captured reference in the cleanup
+            if (currentRef) {
+                observer.unobserve(currentRef);
             }
         };
-    }, [profilePicRef]);
-    
+    }, []); // Empty dependency array since we're capturing the ref at initialization
     return (
         <>
             {profileImageUrl && <Head>

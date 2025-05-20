@@ -17,6 +17,6 @@ export default function Redirect() {
             router.back();
             throw new Error(error);
         }
-    }, []);
+    }, [router]); // Add router to dependencies
 
 }

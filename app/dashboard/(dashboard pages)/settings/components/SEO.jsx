@@ -18,16 +18,16 @@ export default function SEO() {
         if (metaTitle === null) {
             return;
         }
-
+    
         if (metaDescription === null) {
             return;
         }
-
+    
         updateCustomMetaData({
             title: metaTitle,
             description: metaDescription,
         });
-    }, [debounceMetaTitle, debounceMetaDescription]);
+    }, [debounceMetaTitle, debounceMetaDescription, metaTitle, metaDescription]);
 
     useEffect(() => {
         function fetchLinks() {

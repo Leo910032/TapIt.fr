@@ -1,3 +1,4 @@
+// app/[userId]/components/UserInfo.jsx - Fixed version
 "use client"
 
 import { fireApp } from "@/important/firebase";
@@ -17,31 +18,46 @@ export default function UserInfo({userId, hasSensitiveContent}) {
 
     useEffect(() => {
         async function fetchInfo() {
-            const currentUser = await fetchUserData(userId);
+            try {
+                const currentUser = await fetchUserData(userId);
 
-            if (!currentUser) {
-                router.push("/");
-                return;
-            }
-
-            const collectionRef = collection(fireApp, "AccountData");
-            const docRef = doc(collectionRef, `${currentUser}`);
-
-            onSnapshot(docRef, (docSnapshot) => {
-                if (!docSnapshot.exists()) {
+                if (!currentUser) {
+                    router.push("/");
                     return;
                 }
-                const { displayName, bio: bioText, themeFontColor, themeTextColour } = docSnapshot.data();
-                const bio = bioText ? bioText : "";
-                setThemeTextColour(themeTextColour ? themeTextColour : "");
-                setDisplayName(hasSensitiveContent ? displayName : filterProperly(`${displayName ? displayName : ""}`));
-                setThemeFontColor(themeFontColor ? themeFontColor: "");
-                setMyBio(hasSensitiveContent ? bio : filterProperly(bio));
-            });
+
+                const collectionRef = collection(fireApp, "AccountData");
+                const docRef = doc(collectionRef, `${currentUser}`);
+
+                const unsubscribe = onSnapshot(docRef, (docSnapshot) => {
+                    if (!docSnapshot.exists()) {
+                        return;
+                    }
+                    const { displayName, bio: bioText, themeFontColor, themeTextColour } = docSnapshot.data();
+                    const bio = bioText ? bioText : ""; // Ensure bio exists with a default value
+                    
+                    setThemeTextColour(themeTextColour ? themeTextColour : "");
+                    setDisplayName(hasSensitiveContent ? displayName : filterProperly(`${displayName ? displayName : ""}`));
+                    setThemeFontColor(themeFontColor ? themeFontColor: "");
+                    setMyBio(hasSensitiveContent ? bio : filterProperly(bio));
+                });
+                
+                return unsubscribe;
+            } catch (error) {
+                console.error("Error fetching user info:", error);
+            }
         }
 
-        fetchInfo();
-    }, [userId, hasSensitiveContent]);
+        const unsubPromise = fetchInfo();
+        
+        return () => {
+            if (unsubPromise) {
+                unsubPromise.then(unsub => {
+                    if (typeof unsub === 'function') unsub();
+                });
+            }
+        };
+    }, [userId, hasSensitiveContent, router]);
 
     return (
         <>

@@ -44,7 +44,7 @@ export default function ColorPicker({colorFor}) {
             setColorHasLoaded(true);
             return;
         }
-
+    
         if (colorText !== "") {
             setValidColor(isValidHexCode(colorText));
             if (!isValidHexCode(colorText)) {
@@ -53,8 +53,7 @@ export default function ColorPicker({colorFor}) {
     
             handleUpdateTheme(colorText);
         }
-    }, [debounceColor]);
-
+    }, [debounceColor, colorText, colorHasLoaded, handleUpdateTheme]);
     useEffect(() => {
         if (!validColor) {
             return;

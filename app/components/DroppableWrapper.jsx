@@ -1,10 +1,11 @@
-// Create a wrapper for Droppable to fix defaultProps warning
 // app/components/DroppableWrapper.jsx
-
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 
-// This wrapper component uses default parameters instead of defaultProps
+/**
+ * A wrapper for react-beautiful-dnd's Droppable component that handles default props
+ * This fixes the React warnings about defaultProps being deprecated
+ */
 export default function DroppableWrapper({ 
   droppableId, 
   type = "DEFAULT", 

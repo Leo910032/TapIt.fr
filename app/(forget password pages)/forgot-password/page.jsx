@@ -10,6 +10,8 @@ export const generateMetadata = () =>{
 }
 
 export default function ForgotPasswordPage() {
+    const router = useRouter();
+
 
     return (
         <div className="flex h-screen w-screen">
