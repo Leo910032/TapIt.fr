@@ -1,30 +1,46 @@
 {
   "common": {
     "login": "Iniciar sesión",
-    "signup": "Registrarse",
-    "submit": "Enviar",
-    "cancel": "Cancelar",
-    "save": "Guardar",
-    "delete": "Eliminar",
-    "edit": "Editar",
-    "add": "Añadir",
-    "remove": "Eliminar",
-    "loading": "Cargando..."
+    "signup": "Registrarse"
   },
-  "navbar": {
-    "links": "Enlaces",
-    "appearance": "Apariencia",
-    "analytics": "Analítica",
-    "settings": "Configuración"
+  "landing": {
+    "headline": "El Único Enlace Que Necesitarás",
+    "subheadline": "Conecta tu audiencia con todo tu contenido con un solo enlace",
+    "placeholder": "fabiconcept",
+    "submit": "Crear"
+  },
+  "signup": {
+    "title": "Crea tu cuenta",
+    "username_placeholder": "fabiconcept",
+    "email_placeholder": "Email",
+    "password_placeholder": "Contraseña",
+    "submit": "Enviar",
+    "have_account": "¿Ya tienes una cuenta?",
+    "login": "Iniciar sesión",
+    "username_taken": "Este nombre de usuario ya está en uso.",
+    "username_too_short": "El nombre de usuario es demasiado corto.",
+    "invalid_username_format": "Formato de nombre de usuario inválido",
+    "email_exists": "¡Ya tienes una cuenta con nosotros!",
+    "invalid_email": "¡Formato de correo electrónico inválido!",
+    "error_message": "Algo salió mal",
+    "setting_up": "Configurando tu cuenta.",
+    "registration_failed": "No se pudo completar el registro",
+    "setup_complete": "Configuración completada",
+    "cannot_submit": "¡No se puede enviar el formulario todavía!"
+  },
+  "login": {
+    "title": "Inicia sesión en tu cuenta",
+    "email_placeholder": "Email",
+    "password_placeholder": "Contraseña",
+    "submit": "Iniciar sesión",
+    "forgot_password": "¿Olvidaste tu contraseña?",
+    "no_account": "¿No tienes una cuenta?",
+    "signup": "Registrarse"
   },
   "dashboard": {
     "links": "Enlaces",
     "appearance": "Apariencia",
     "analytics": "Analítica",
-    "settings": "Configuración",
-    "your_linktree": "Tu Linktree está activo:",
-    "copy_url": "Copiar URL",
-    "copied": "¡Copiado!"
-  },
-  "login": {
-    "title": "Inicia sesión en tu Linktree",
+    "settings": "Configuración"
+  }
+}

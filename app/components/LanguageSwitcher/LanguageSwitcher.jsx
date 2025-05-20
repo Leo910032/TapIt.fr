@@ -1,9 +1,7 @@
-// app/components/LanguageSwitcher/LanguageSwitcher.jsx
 "use client"
 import { useLanguage } from '@/lib/languageContext';
 import { useTranslation } from '@/lib/useTranslation';
 import { useState } from 'react';
-import styles from './LanguageSwitcher.module.css';
 
 const languages = [
   { code: 'en', name: 'English', flag: '🇬🇧' },

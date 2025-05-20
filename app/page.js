@@ -1,9 +1,10 @@
+"use client";
 import Image from "next/image";
 import Form from "./elements/LandingPageElements/Form";
 import Topings from "./elements/LandingPageElements/Topings";
 import LandingNav from "./components/General Components/LandingNav";
 
-export default async function Home() {
+export default function Home() {
     return (
         <main className="bg-dark h-screen w-screen flex items-center justify-center flex-col">
             <LandingNav />
@@ -13,5 +14,5 @@ export default async function Home() {
             </div>
             <Topings />
         </main>
-    )
+    );
 }
