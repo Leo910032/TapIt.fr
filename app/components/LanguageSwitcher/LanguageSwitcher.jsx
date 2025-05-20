@@ -7,7 +7,9 @@ const languages = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'vm', name: 'Tiếng Việt', flag: '🇻🇳' }  // Add this line
+  { code: 'vm', name: 'Tiếng Việt', flag: '🇻🇳' },
+  { code: 'zh', name: '中文', flag: '🇨🇳' }
+
 ];
 
 export default function LanguageSwitcher() {
