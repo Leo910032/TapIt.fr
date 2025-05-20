@@ -18,9 +18,9 @@ export const LanguageProvider = ({ children }) => {
       } else {
         // If no saved language, detect browser language
         const browserLang = navigator.language?.split('-')[0]; // 'en-US' -> 'en'
-        if (browserLang && ['en', 'fr', 'es'].includes(browserLang)) {
-          setLocale(browserLang);
-        }
+if (browserLang && ['en', 'fr', 'es', 'vi'].includes(browserLang)) {  // Add 'vi' here
+  setLocale(browserLang);
+}
       }
       setIsInitialized(true);
     }

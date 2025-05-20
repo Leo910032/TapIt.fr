@@ -49,7 +49,7 @@
     "have_account": "Already have an account?",
     "login": "Log in",
     "setting_up": "Setting up your account.",
-    "registration_failed": "Could't complete registration",
+    "registration_failed": "Couldn't complete registration",
     "setup_complete": "Setup complete",
     "cannot_submit": "Can't submit form yet!",
     "error_message": "Something went wrong",
@@ -76,8 +76,10 @@
     "passwords_must_match": "Both password must match!"
   },
   "landing": {
-    "title": "The Only Link You'll Ever Need",
-    "subtitle": "Connect your audience to all of your content with one link"
+    "headline": "The Only Link You'll Ever Need",
+    "subheadline": "Connect your audience to all of your content with one link",
+    "placeholder": "fabiconcept",
+    "submit": "Create"
   },
   "settings": {
     "social_icons": "Social Icons",

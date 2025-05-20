@@ -1,12 +1,13 @@
 // app/components/LanguageSwitcher/LanguageSwitcher.jsx
 "use client"
-import { useLanguage } from '@/lib/languageContext';
+import { useLanguage } from '../../../lib/languageContext';
 import { useState } from 'react';
 
 const languages = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' }
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'vm', name: 'Tiếng Việt', flag: '🇻🇳' }  // Add this line
 ];
 
 export default function LanguageSwitcher() {

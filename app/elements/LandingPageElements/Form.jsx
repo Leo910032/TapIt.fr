@@ -1,14 +1,15 @@
+// app/elements/LandingPageElements/Form.jsx
 "use client"
 import { useEffect, useState } from "react";
 import "../../styles/3d.css";
 import { FaArrowLeft, FaArrowRightArrowLeft, FaArrowUp } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
-import { useDebounce } from "@/hooks/useDebounce";
+import { useDebounce } from "../../../hooks/useDebounce";
 import Image from "next/image";
-import { setSessionCookie } from "@/lib/authentication/session";
+import { setSessionCookie } from "../../../lib/authentication/session";
 import { collection, onSnapshot } from "firebase/firestore";
-import { fireApp } from "@/important/firebase";
-import { useTranslation } from "@/lib/useTranslation";
+import { fireApp } from "../../../important/firebase";
+import { useTranslation } from "../../../lib/useTranslation";
 
 export default function Form() {
     const { t } = useTranslation();
@@ -55,7 +56,7 @@ export default function Form() {
         }
     }, [debouncedUsername, existingUsernames, t]);
 
-    const handleSumbit = (e) => { 
+    const handleSubmit = (e) => { 
         e.preventDefault();
         if(canProceed && !isLoading){
             setIsLoading(true);
@@ -89,6 +90,8 @@ export default function Form() {
         const container = document.getElementById("container");
         const inner = document.getElementById("inner");
         const inputDiv = document.getElementById("input");
+
+        if (!container || !inner || !inputDiv) return;
 
         // Mouse
         const mouse = {
@@ -151,21 +154,23 @@ export default function Form() {
             inputDiv.style.transform = `translateZ(10rem)`;
         };
 
-        document.onmouseenter = onMouseEnterHandler;
-        document.onmouseleave = onMouseLeaveHandler;
-        document.onmousemove = onMouseMoveHandler;
+        container.onmouseenter = onMouseEnterHandler;
+        container.onmouseleave = onMouseLeaveHandler;
+        container.onmousemove = onMouseMoveHandler;
 
         // Cleanup
         return () => {
-            document.onmouseenter = null;
-            document.onmouseleave = null;
-            document.onmousemove = null;
+            if (container) {
+                container.onmouseenter = null;
+                container.onmouseleave = null;
+                container.onmousemove = null;
+            }
         };
     }, []);
 
     return (
         <div className="w-fit h-fit z-10" id="container">
-            <form className="flex items-center justify-center flex-col" id="inner" onSubmit={handleSumbit}>
+            <form className="flex items-center justify-center flex-col" id="inner" onSubmit={handleSubmit}>
                 <div className="text-[2.15rem] sm:text-[3rem] md:text-[4rem] font-bold text-white z-10 mb-4 max-w-[70vw] text-center">
                     {t('landing.headline')}
                 </div>
@@ -175,7 +180,14 @@ export default function Form() {
                 <div className={`flex items-stretch gap-2 relative filter ${hasError === 1 ? "dropshadow-bad" : hasError === 2 ? "dropshadow-good" : "dropshadow"}`} id="input">
                     <div className={`flex items-center rounded-l-xl bg-white px-6 text-sm md:text-2xl sm:text-md ${hasError === 1 ? "border-red-500 border-[2px]" : hasError === 2 ? "border-green-500 border-[2px]" : ""}`}>
                         <label className="opacity-40 font-semibold">mylinktr.ee/:</label>
-                        <input type="text" className="bg-transparent peer py-5 px-2 outline-none border-none md:w-auto w-[8rem]" placeholder={t('landing.placeholder')} onChange={(e)=>setUsername(e.target.value)} required />
+                        <input 
+                            type="text" 
+                            className="bg-transparent peer py-5 px-2 outline-none border-none md:w-auto w-[8rem]" 
+                            placeholder={t('landing.placeholder')} 
+                            onChange={(e)=>setUsername(e.target.value)} 
+                            value={username}
+                            required 
+                        />
                     </div>
                     <button type="submit" className={`px-4 grid place-items-center ${canProceed ? "bg-themeGreen text-white": "bg-slate-400 text-white"} rounded-r-xl font-semibold cursor-pointer hover:scale-110 active:scale-95 active:opacity-80 uppercase text-sm md:text-lg sm:text-md`}>
                         {!isLoading && <span className="nopointer">

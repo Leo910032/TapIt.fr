@@ -76,8 +76,10 @@
     "passwords_must_match": "Les deux mots de passe doivent correspondre!"
   },
   "landing": {
-    "title": "Le Seul Lien Dont Vous Aurez Jamais Besoin",
-    "subtitle": "Connectez votre audience à tout votre contenu avec un seul lien"
+    "headline": "Le Seul Lien Dont Vous Aurez Jamais Besoin",
+    "subheadline": "Connectez votre audience à tout votre contenu avec un seul lien",
+    "placeholder": "fabiconcept",
+    "submit": "Créer"
   },
   "settings": {
     "social_icons": "Icônes sociales",
