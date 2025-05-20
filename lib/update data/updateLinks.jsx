@@ -1,7 +1,7 @@
 import { fireApp } from "@/important/firebase";
 import { collection, doc, getDoc, setDoc } from "firebase/firestore";
-import { testForActiveSession, removeSessionCookie, getSessionCookie } from "../authentication/session";
-
+import { testForActiveSession } from "../authentication/testForActiveSession";
+import { removeSessionCookie } from "../authentication/session";
 export async function updateLinks(arrayOfLinks) {
     try {
         const username = testForActiveSession();

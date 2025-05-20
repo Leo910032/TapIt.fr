@@ -1,8 +1,10 @@
+// app/dashboard/(dashboard pages)/settings/components/mini components/SocialCard.jsx - Fixed version
 "use client"
-import React, { useContext, useEffect, useState } from 'react';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import React, { useContext } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
 import SocialElement from '../../elements/SocialElement';
 import { SocialContext } from '../SocialSetting';
+import DroppableWrapper from '../../../../../components/DroppableWrapper'; // Import the wrapper
 
 const DraggableList = () => {
     const { socialsArray, setSocialsArray } = useContext(SocialContext);
@@ -19,7 +21,8 @@ const DraggableList = () => {
 
     return (
         <DragDropContext onDragEnd={handleDragEnd}>
-            <Droppable droppableId="droppable">
+            {/* Replace Droppable with DroppableWrapper */}
+            <DroppableWrapper droppableId="droppable">
                 {(provided) => (
                     <ul {...provided.droppableProps} ref={provided.innerRef} className='pl-4 grid gap-1'>
                         {socialsArray.map((item, index) => (
@@ -28,7 +31,7 @@ const DraggableList = () => {
                         {provided.placeholder}
                     </ul>
                 )}
-            </Droppable>
+            </DroppableWrapper>
         </DragDropContext>
     );
 };

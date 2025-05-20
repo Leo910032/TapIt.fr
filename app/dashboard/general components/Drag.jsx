@@ -1,9 +1,11 @@
+// app/dashboard/general components/Drag.jsx - Fixed version
 "use client"
 import React, { useContext, useEffect, useState } from 'react';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 import Normal from '../general elements/draggables/Normal';
 import Special from '../general elements/draggables/Special';
 import { ManageLinksContent } from './ManageLinks';
+import DroppableWrapper from '../../components/DroppableWrapper'; // Import the wrapper
 
 const DraggableList = ({ array }) => {
     const { setData }= useContext(ManageLinksContent);
@@ -25,7 +27,8 @@ const DraggableList = ({ array }) => {
 
     return (
         <DragDropContext onDragEnd={handleDragEnd}>
-            <Droppable droppableId="draggable-list" mode='virtual'>
+            {/* Replace Droppable with DroppableWrapper */}
+            <DroppableWrapper droppableId="draggable-list" mode="virtual">
                 {(provided) => (
                     <div ref={provided.innerRef} {...provided.droppableProps} className='flex flex-col gap-8'>
                         {items.map((item, index) => {
@@ -38,7 +41,7 @@ const DraggableList = ({ array }) => {
                         {provided.placeholder}
                     </div>
                 )}
-            </Droppable>
+            </DroppableWrapper>
         </DragDropContext>
     );
 };
