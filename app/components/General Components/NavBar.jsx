@@ -9,6 +9,8 @@ import React, { useEffect, useRef, useState } from "react";
 import ProfileCard from "../NavComponents/ProfileCard";
 import { fetchUserData } from "@/lib/fetchData/fetchUserData";
 import ShareCard from "../NavComponents/ShareCard";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useTranslation } from "@/lib/useTranslation";
 
 export const NavContext = React.createContext();
 
@@ -22,6 +24,7 @@ export default function NavBar() {
     const [showShareCard, setShowShareCard] = useState(false);
     const profileCardRef = useRef(null);
     const shareCardRef = useRef(null);
+    const { t } = useTranslation();
 
     const handleShowProfileCard = () =>{
         if (username === "") {
@@ -147,27 +150,28 @@ export default function NavBar() {
                     <div className="hidden md:flex items-center gap-6">
                         <Link href={'/dashboard'} className={`flex items-center gap-2 px-2 py-2 active:scale-90 active:opacity-40 hover:bg-black hover:bg-opacity-[0.075] rounded-lg text-sm font-semibold ${activePage === 0 ? "opacity-100" : "opacity-50 hover:opacity-70"}`}>
                             <Image src={"https://linktree.sirv.com/Images/icons/links.svg"} alt="links" height={16} width={16} />
-                            Links
+                            {t('dashboard.links')}
                         </Link>
                         <Link href={'/dashboard/appearance'} className={`flex items-center gap-2 px-2 py-2 active:scale-90 active:opacity-40 hover:bg-black hover:bg-opacity-[0.075] rounded-lg text-sm font-semibold ${activePage === 1 ? "opacity-100" : "opacity-50 hover:opacity-70"}`}>
                             <Image src={"https://linktree.sirv.com/Images/icons/appearance.svg"} alt="links" height={16} width={16} />
-                            Appearance
+                            {t('dashboard.appearance')}
                         </Link>
 
                         {/* Didn't find these page */}
                         {/* <Link href={'/dashboard'} className={`flex items-center gap-2 px-2 py-2 active:scale-90 active:opacity-40 hover:bg-black hover:bg-opacity-[0.075] rounded-lg text-sm font-semibold ${activePage === 2 ? "opacity-100" : "opacity-50 hover:opacity-70"}`}>
                             <Image src={"https://linktree.sirv.com/Images/icons/analytics.svg"} alt="links" height={16} width={16} />
-                            analytics
+                            {t('dashboard.analytics')}
                         </Link> */}
                         
                         <Link href={'/dashboard/settings'} className={`flex items-center gap-2 px-2 py-2 active:scale-90 active:opacity-40 hover:bg-black hover:bg-opacity-[0.075] rounded-lg text-sm font-semibold ${activePage === 3 ? "opacity-100" : "opacity-50 hover:opacity-70"}`}>
                             <Image src={"https://linktree.sirv.com/Images/icons/setting.svg"} alt="links" height={16} width={16} />
-                            settings
+                            {t('dashboard.settings')}
                         </Link>
                     </div>
                 </div>
 
                 <div className="flex items-center gap-3">
+                    <LanguageSwitcher />
                     <div className="p-3 flex items-center relative gap-2 rounded-3xl border cursor-pointer hover:bg-gray-100 active:scale-90 overflow-hidden" ref={shareCardRef} onClick={handleShowShareCard}>
                         <Image src={"https://linktree.sirv.com/Images/icons/share.svg"} alt="links" height={15} width={15} />
                     </div>
@@ -184,11 +188,11 @@ export default function NavBar() {
             <div className="flex justify-between py-2 px-4 m-2 rounded-xl bg-white sm:hidden">
                 <Link href={'/dashboard'} className={`flex items-center flex-1 justify-center gap-2 px-3 py-2 active:scale-90 active:opacity-40 hover:bg-black hover:bg-opacity-[0.075] rounded-lg text-sm font-semibold ${activePage === 0 ? "opacity-100" : "opacity-50 hover:opacity-70"}`}>
                     <Image src={"https://linktree.sirv.com/Images/icons/links.svg"} alt="links" height={16} width={16} />
-                    Links
+                    {t('dashboard.links')}
                 </Link>
                 <Link href={'/dashboard/appearance'} className={`flex items-center flex-1 justify-center gap-2 px-3 py-2 active:scale-90 active:opacity-40 hover:bg-black hover:bg-opacity-[0.075] rounded-lg text-sm font-semibold ${activePage === 1 ? "opacity-100" : "opacity-50 hover:opacity-70"}`}>
                     <Image src={"https://linktree.sirv.com/Images/icons/appearance.svg"} alt="links" height={16} width={16} />
-                    Appearance
+                    {t('dashboard.appearance')}
                 </Link>
 
                 {/* Didn't find these page */}
@@ -199,7 +203,7 @@ export default function NavBar() {
 
                 <Link href={'/dashboard/settings'} className={`flex items-center flex-1 justify-center gap-2 px-3 py-2 active:scale-90 active:opacity-40 hover:bg-black hover:bg-opacity-[0.075] rounded-lg text-sm font-semibold ${activePage === 3 ? "opacity-100" : "opacity-50 hover:opacity-70"}`}>
                     <Image src={"https://linktree.sirv.com/Images/icons/setting.svg"} alt="links" height={16} width={16} />
-                    settings
+                    {t('dashboard.settings')}
                 </Link>
             </div>
         </NavContext.Provider>
