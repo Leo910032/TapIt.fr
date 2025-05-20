@@ -1,0 +1,93 @@
+{
+  "common": {
+    "login": "Connexion",
+    "signup": "S'inscrire",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "add": "Ajouter",
+    "remove": "Supprimer",
+    "loading": "Chargement..."
+  },
+  "navbar": {
+    "links": "Liens",
+    "appearance": "Apparence",
+    "analytics": "Analytique",
+    "settings": "Paramètres"
+  },
+  "dashboard": {
+    "links": "Liens",
+    "appearance": "Apparence",
+    "analytics": "Analytique",
+    "settings": "Paramètres",
+    "your_linktree": "Votre Linktree est en ligne:",
+    "copy_url": "Copier l'URL",
+    "copied": "Copié!"
+  },
+  "login": {
+    "title": "Connectez-vous à votre Linktree",
+    "username_placeholder": "fabiconcept",
+    "password_placeholder": "Mot de passe",
+    "forgot_password": "Mot de passe oublié?",
+    "submit": "Soumettre",
+    "no_account": "Vous n'avez pas de compte?",
+    "sign_up": "S'inscrire",
+    "invalid_credentials": "Identifiants de connexion invalides!",
+    "success": "Connexion réussie",
+    "validating": "Validation des identifiants...",
+    "incorrect_password": "Vous avez entré un mot de passe incorrect!",
+    "username_not_registered": "Ce nom d'utilisateur n'est pas enregistré."
+  },
+  "signup": {
+    "title": "Créez votre compte",
+    "username_placeholder": "fabiconcept",
+    "email_placeholder": "Email",
+    "password_placeholder": "Mot de passe",
+    "submit": "Soumettre",
+    "have_account": "Vous avez déjà un compte?",
+    "login": "Connexion",
+    "setting_up": "Configuration de votre compte.",
+    "registration_failed": "Impossible de terminer l'inscription",
+    "setup_complete": "Configuration terminée",
+    "cannot_submit": "Impossible de soumettre le formulaire pour l'instant!",
+    "error_message": "Une erreur s'est produite",
+    "username_taken": "Ce nom d'utilisateur est déjà pris.",
+    "username_too_short": "Le nom d'utilisateur est trop court.",
+    "invalid_username_format": "Format de nom d'utilisateur invalide",
+    "email_exists": "Vous avez déjà un compte chez nous!",
+    "invalid_email": "Format d'email invalide!"
+  },
+  "forgot_password": {
+    "title": "Demander un lien de réinitialisation de mot de passe",
+    "email_placeholder": "Indiquez votre adresse e-mail",
+    "submit": "Envoyer la demande",
+    "remembered": "Vous vous souvenez de votre mot de passe?",
+    "not_registered": "Vous n'avez pas de compte chez nous!",
+    "invalid_email": "Format d'email invalide!"
+  },
+  "reset_password": {
+    "title": "Entrez votre nouveau mot de passe",
+    "advice": "Je vous conseille que votre nouveau mot de passe soit différent de votre mot de passe précédent.",
+    "password_placeholder": "Mot de passe",
+    "confirm_placeholder": "Retapez le mot de passe",
+    "submit": "Changer le mot de passe",
+    "passwords_must_match": "Les deux mots de passe doivent correspondre!"
+  },
+  "landing": {
+    "title": "Le Seul Lien Dont Vous Aurez Jamais Besoin",
+    "subtitle": "Connectez votre audience à tout votre contenu avec un seul lien"
+  },
+  "settings": {
+    "social_icons": "Icônes sociales",
+    "support_banner": "Bannière de soutien",
+    "sensitive_material": "Contenu sensible",
+    "seo": "Référencement",
+    "jump_to": "Aller à:"
+  },
+  "not_found": {
+    "title": "Oups. Page non trouvée",
+    "description": "Désolé, la page que vous recherchez n'existe pas ou a été masquée."
+  }
+}
