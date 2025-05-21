@@ -65,7 +65,16 @@
     "submit": "Send request",
     "remembered": "Remembered your password?",
     "not_registered": "You don't have an account with us!",
-    "invalid_email": "Invalid Email format!"
+    "invalid_email": "Invalid Email format!",
+    "rest_link_request": "Request password reset link",
+    "reset_link_sent" :"Password reset link sent",
+    "error_link_sent" : "Oops! An error has occurred!",
+    "sending_request": "Sending request...",
+    "error_occurred": "Oops! An error occurred!",
+    "provide_email" : "Provide your email address",
+    "remenber_password" : "Remembered your password?",
+    "sign_up"            :" Sign up"
+  
   },
   "reset_password": {
     "title": "Enter your new password",

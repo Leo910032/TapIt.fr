@@ -10,10 +10,12 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaCheck, FaX } from "react-icons/fa6";
+import { useTranslation } from "@/lib/useTranslation";
+
 
 export default function ForgotPasswordForm() {
     const router = useRouter();
-
+    const { t } = useTranslation();
     const [emailText, setEmailText]= useState("");
     const [existingEmail, setExistingEmail] = useState([]);
     const [canProceed, setCanProceed] = useState(false);
@@ -65,9 +67,9 @@ export default function ForgotPasswordForm() {
         const promise = sendResetUrl(payload);
 
         toast.promise(promise, {
-            error: "Oops! An error has occurred!",
-            success: "Password reset link sent.",
-            loading: "Sending request..."
+            error: t('forgot_password.error_link_sent'),
+            success: t('forgot_password.reset_link_sent'),
+            loading: t("forgot_password.sending_request")
         }).then(()=>{
             setEmailText("");
             setTimeout(() => {
@@ -77,7 +79,7 @@ export default function ForgotPasswordForm() {
         }).catch((error)=>{
             setHasError({ ...hasError, email: 1 });
             setIsLoading(false);
-            setErrorMessage("Oops! An error occurred!");
+            setErrorMessage(t("forgot_password.error_occurred"));
             console.error(error)
         });
     }
@@ -86,13 +88,13 @@ export default function ForgotPasswordForm() {
         if (debouncedEmail !== "") {
             if (!validateEmail(debouncedEmail)) {
                 setHasError((prevData) => ({ ...prevData, email: 1 }));
-                setErrorMessage("Invalid Email format!");
+                setErrorMessage(t("forgot_password.invalid_email"));
                 return;
             }
 
             if (!existingEmail.includes(String(debouncedEmail).toLowerCase())) {
                 setHasError((prevData) => ({ ...prevData, email: 1 }));
-                setErrorMessage("You don't have an account with us!");
+                setErrorMessage(t("forgot_password.not_registered"));
                 return;
             }
 
@@ -121,12 +123,12 @@ export default function ForgotPasswordForm() {
                 <Image src={"https://linktree.sirv.com/Images/full-logo.svg"} alt="logo" height={150} width={100} className="w-[7.05rem]" />
             </Link>
             <section className="mx-auto py-10 w-full sm:w-5/6 md:w-3/4 lg:w-2/3 xl:w-1/2 flex-1 flex flex-col justify-center">
-                <p className="text-2xl sm:text-5xl md:text-3xl font-extrabold text-center">Request password reset link</p>
+            <p className="text-2xl sm:text-5xl md:text-3xl font-extrabold text-center"> {t('forgot_password.rest_link_request')} </p>
                 <form className="py-8 sm:py-12 flex flex-col gap-4 sm:gap-6 w-full" onSubmit={handleSubmit}>
                     <div className={`flex items-center py-2 sm:py-3 px-2 sm:px-6 rounded-md myInput ${hasError.email === 1 ? "hasError" : hasError.username === 2 ? "good" : ""} bg-black bg-opacity-5 text-base sm:text-lg w-full`}>
                         <input
                             type="email"
-                            placeholder="Provide your email address"
+                            placeholder= {t('forgot_password.provide_email')}
                             className="outline-none border-none bg-transparent ml-1 py-3 flex-1 text-sm sm:text-base"
                             value={emailText}
                             name="email"
@@ -143,18 +145,18 @@ export default function ForgotPasswordForm() {
                         }
                     </div>
 
-                    <Link href={"/login"} className="w-fit hover:rotate-2 hover:text-themeGreen origin-left">Remembered your password?</Link>
+                    <Link href={"/login"} className="w-fit hover:rotate-2 hover:text-themeGreen origin-left">{t('forgot_password.remenber_password')}</Link>
 
                     <button type="submit" className={
                         `rounded-md py-4 sm:py-5 grid place-items-center font-semibold ${canProceed? "cursor-pointer active:scale-95 active:opacity-40 hover:scale-[1.025] bg-themeGreen mix-blend-screen" : "cursor-default opacity-50 "}`
                     }>
-                        {!isLoading && <span className="nopointer">Send request</span>}
+                        {!isLoading && <span className="nopointer">{t('forgot_password.sending_request')}</span>}
                         {isLoading && <Image src={"https://linktree.sirv.com/Images/gif/loading.gif"} width={25} height={25} alt="loading" className=" mix-blend-screen" />}
                     </button>
 
                     {!isLoading && <span className="text-sm text-red-500 text-center">{errorMessage}</span>}
                 </form>
-                <p className="text-center sm:text-base text-sm"><span className="opacity-60">Don&apos;t have an account?</span> <Link href={"/signup"} className="text-themeGreen">Sign up</Link> </p>
+                <p className="text-center sm:text-base text-sm"><span className="opacity-60">{t('forgot_password.not_registered')}</span> <Link href={"/signup"} className="text-themeGreen">{t('forgot_password.sign_up')}</Link> </p>
             </section>
 
         </div>
