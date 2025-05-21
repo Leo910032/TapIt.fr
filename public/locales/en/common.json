@@ -60,6 +60,7 @@
     "invalid_email": "Invalid Email format!"
   },
   "forgot_password": {
+    "page_title" :"Link Tree | Forgot password",
     "title": "Request password reset link",
     "email_placeholder": "Provide your email address",
     "submit": "Send request",
@@ -82,7 +83,13 @@
     "password_placeholder": "Password",
     "confirm_placeholder": "Retype password",
     "submit": "Change password",
-    "passwords_must_match": "Both password must match!"
+    "passwords_must_match": "Both password must match!",
+    "password_setup": "Setting up your new Password...",
+    "password_error" : "Oops! Something went wrong",
+    "password_succes" : "Password changed! ✨✔",
+    "password_placeholder_retype" : "Retype assword",
+    "password_change": "Change password "
+    
   },
   "landing": {
     "headline": "The Only Link You'll Ever Need",
