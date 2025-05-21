@@ -11,6 +11,20 @@
     "remove": "Remove",
     "loading": "Loading..."
   },
+  "userId": {
+    "sensitive_content" : "Sensitive Content",
+    "profile.warning"   : "This profile may contain content that is not appropriate for all audiences",
+    "Continue" : "continue",
+    "sensitiveType2" : "I'm over 25",
+    "sensitiveType18" : "I'm over 18",
+    "sensitiveType21" : "I'm over 21",
+    "go_back"         : "Go Back",
+    "sensitiveType2_under" : "I'm under 25",
+    "sensitiveType1_21" : "I'm under 21",
+    "sensitiveType1_18" : "I'm under 18",
+    "act_now"     : "Act now"
+
+  },
   "navbar": {
     "links": "Links",
     "appearance": "Appearance",

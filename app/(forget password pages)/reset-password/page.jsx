@@ -8,6 +8,6 @@ export default function ResetPasswordPage() {
     router.push("/login");
     
     return (
-        <div>{t("reset_password.page")}</div>
+        <div>page</div>
     )
 }

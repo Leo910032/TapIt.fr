@@ -7,8 +7,9 @@ import { collection, doc, onSnapshot } from "firebase/firestore";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import { useTranslation } from "@/lib/useTranslation";
 export default function SupportBanner({ userId }) {
+    const { t } = useTranslation();
     const [supportGroup, setSupportGroup] = useState(0);
     const [supportGroupStatus, setSupportGroupStatus] = useState(false);
     const [expanded, setExpanded] = useState(false);
@@ -69,7 +70,7 @@ export default function SupportBanner({ userId }) {
                             target="_blank"
                             className="sm:max-w-[30rem] w-full p-3 bg-white text-black font-semibold rounded-2xl uppercase hover:scale-105 active:scale-95 mt-2"
                         >
-                            Act now
+                       {t('userId.act_now')}
                         </Link>
                     </div>
                 </div>
