@@ -88,7 +88,10 @@
     "password_error" : "Oops! Something went wrong",
     "password_succes" : "Password changed! ✨✔",
     "password_placeholder_retype" : "Retype assword",
-    "password_change": "Change password "
+    "password_change": "Change password ",
+    "login"          : "Go back to login",
+    "homepage"       : "Go to homepage",
+    "page"           :"page"
     
   },
   "landing": {
