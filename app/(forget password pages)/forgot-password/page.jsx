@@ -5,7 +5,7 @@ import SideThing from "@/app/components/General Components/SideThing";
 
 export const generateMetadata = () => {
     return {
-        title: "Link Tree | Forgot password",
+        title: "Tapit.fr ",
         description: "Use this form to get a reset password url"
     }
 }

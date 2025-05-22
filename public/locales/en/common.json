@@ -11,19 +11,40 @@
     "remove": "Remove",
     "loading": "Loading..."
   },
+  "email": {
+    "welcome": {
+      "subject": "Thanks for creating an account!",
+      "title": "Welcome to My Linktree Clone!",
+      "description": "This project is my attempt at recreating the amazing system that Linktree has developed.",
+      "disclaimer_title": "Disclaimer: ",
+      "disclaimer_text": "This is not the actual linktree, and has no affiliation to or with Linktree, it is just a personal project.",
+      "credentials_intro": "Your login credentials are provided below:",
+      "email_label": "Email:",
+      "password_label": "Password:",
+      "login_button": "Login to Your Account",
+      "footer": "Thank you for checking my project out. ❤❤❤",
+      "see_more": "see more"
+    },
+    "reset": {
+      "subject": "Password Reset Email",
+      "title": "Password Reset Email",
+      "description": "You've requested to reset your password. Please use the following link to reset your password:",
+      "button": "Reset Password",
+      "footer": "Thank you for using our service! ❤❤❤"
+    }
+  },
   "userId": {
-    "sensitive_content" : "Sensitive Content",
-    "profile.warning"   : "This profile may contain content that is not appropriate for all audiences",
-    "Continue" : "continue",
-    "sensitiveType2" : "I'm over 25",
-    "sensitiveType18" : "I'm over 18",
-    "sensitiveType21" : "I'm over 21",
-    "go_back"         : "Go Back",
-    "sensitiveType2_under" : "I'm under 25",
-    "sensitiveType1_21" : "I'm under 21",
-    "sensitiveType1_18" : "I'm under 18",
-    "act_now"     : "Act now"
-
+    "sensitive_content": "Sensitive Content",
+    "profile.warning": "This profile may contain content that is not appropriate for all audiences",
+    "Continue": "continue",
+    "sensitiveType2": "I'm over 25",
+    "sensitiveType18": "I'm over 18",
+    "sensitiveType21": "I'm over 21",
+    "go_back": "Go Back",
+    "sensitiveType2_under": "I'm under 25",
+    "sensitiveType1_21": "I'm under 21",
+    "sensitiveType1_18": "I'm under 18",
+    "act_now": "Act now"
   },
   "navbar": {
     "links": "Links",
@@ -74,7 +95,7 @@
     "invalid_email": "Invalid Email format!"
   },
   "forgot_password": {
-    "page_title" :"Link Tree | Forgot password",
+    "page_title": "Link Tree | Forgot password",
     "title": "Request password reset link",
     "email_placeholder": "Provide your email address",
     "submit": "Send request",
@@ -82,14 +103,13 @@
     "not_registered": "You don't have an account with us!",
     "invalid_email": "Invalid Email format!",
     "rest_link_request": "Request password reset link",
-    "reset_link_sent" :"Password reset link sent",
-    "error_link_sent" : "Oops! An error has occurred!",
+    "reset_link_sent": "Password reset link sent",
+    "error_link_sent": "Oops! An error has occurred!",
     "sending_request": "Sending request...",
     "error_occurred": "Oops! An error occurred!",
-    "provide_email" : "Provide your email address",
-    "remenber_password" : "Remembered your password?",
-    "sign_up"            :" Sign up"
-  
+    "provide_email": "Provide your email address",
+    "remenber_password": "Remembered your password?",
+    "sign_up": " Sign up"
   },
   "reset_password": {
     "title": "Enter your new password",
@@ -99,14 +119,13 @@
     "submit": "Change password",
     "passwords_must_match": "Both password must match!",
     "password_setup": "Setting up your new Password...",
-    "password_error" : "Oops! Something went wrong",
-    "password_succes" : "Password changed! ✨✔",
-    "password_placeholder_retype" : "Retype assword",
+    "password_error": "Oops! Something went wrong",
+    "password_succes": "Password changed! ✨✔",
+    "password_placeholder_retype": "Retype assword",
     "password_change": "Change password ",
-    "login"          : "Go back to login",
-    "homepage"       : "Go to homepage",
-    "page"           :"page"
-    
+    "login": "Go back to login",
+    "homepage": "Go to homepage",
+    "page": "page"
   },
   "landing": {
     "headline": "The Only Link You'll Ever Need",

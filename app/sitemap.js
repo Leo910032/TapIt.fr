@@ -3,7 +3,7 @@ import { fireApp } from "@/important/firebase";
 
 const staticRoutes= [
     {
-        url: 'https://mylinks.fabiconcept.online',
+        url: 'https://www.tapit.fr',
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 1,

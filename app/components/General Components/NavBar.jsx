@@ -146,6 +146,25 @@ export default function NavBar() {
                 break;
         }
     }, [router]);
+
+    // Add CSS to body for mobile spacing
+    useEffect(() => {
+        // Add padding-bottom to body on mobile to account for fixed navbar
+        const addMobileSpacing = () => {
+            document.body.style.paddingBottom = window.innerWidth < 640 ? '100px' : '0px';
+        };
+
+        // Initial check
+        addMobileSpacing();
+
+        // Listen for window resize
+        window.addEventListener('resize', addMobileSpacing);
+
+        return () => {
+            window.removeEventListener('resize', addMobileSpacing);
+            document.body.style.paddingBottom = '0px';
+        };
+    }, []);
     
     return (
         <NavContext.Provider value={{ username, myLink, profilePicture, showProfileCard, setShowProfileCard, showShareCard, setShowShareCard }}>

@@ -8,11 +8,10 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaEye, FaEyeSlash} from "react-icons/fa6";
-import { useTranslation } from "@/lib/useTranslation";
 
 export default function ResetPasswordForm({user, resetKey}) {
     const router = useRouter();
-    const { t } = useTranslation();
+    
     const [seePassord, setSeePassord] = useState(true);
     const [seePassord2, setSeePassord2] = useState(true);
     const [mainPasswordText, setMainPasswordText]= useState("");
@@ -64,7 +63,7 @@ export default function ResetPasswordForm({user, resetKey}) {
         }
         if (debouncedPassword_confirm !== debouncedPassword_main) {
             setHasError((prevData) => ({ ...prevData, password_confirm: 1 }));
-            setErrorMessage(t(reset_password.passwords_must_match));
+            setErrorMessage("zzzz!");
             return;
         }
     }, [debouncedPassword_confirm, debouncedPassword_main]);
@@ -84,9 +83,9 @@ export default function ResetPasswordForm({user, resetKey}) {
         );
 
         toast.promise(promise, {
-            loading: t('reset_password.password_setup'),
-            error: t('reset_password.password_error'),
-            success: t('reset_password.password_succes')
+            loading: "Setting up your new Password...",
+            error: "Oops! Something went wrong!",
+            success: "Password changed! ✨✔"
         }).then(()=>{
             setTimeout(() => {
                 router.push("/login");
@@ -102,7 +101,7 @@ export default function ResetPasswordForm({user, resetKey}) {
                 return;
             }
             console.error(error);
-            setErrorMessage( t('reset_password.password_error'));
+            setErrorMessage(`Oops! Something went wrong!`);
         });
     }
 
@@ -127,13 +126,13 @@ export default function ResetPasswordForm({user, resetKey}) {
                 <Image src={"https://linktree.sirv.com/Images/full-logo.svg"} alt="logo" height={150} width={100} className="w-[7.05rem]" />
             </Link>
             <section className="mx-auto py-10 w-full sm:w-5/6 md:w-3/4 lg:w-2/3 xl:w-1/2 flex-1 flex flex-col justify-center">
-                <p className="text-2xl sm:text-5xl md:text-3xl font-extrabold text-center"> {t('reset_password.password_error')}</p>
-                <p className="opacity-40 mt-4 max-w-sm mx-auto text-center">{t('reset_password.advice')}</p>
+                <p className="text-2xl sm:text-5xl md:text-3xl font-extrabold text-center">Enter your new password</p>
+                <p className="opacity-40 mt-4 max-w-sm mx-auto text-center">I&apos;ll advice that your new password be different from your previous password.</p>
                 <form className="py-8 sm:py-12 flex flex-col gap-4 sm:gap-6 w-full" onSubmit={handleSubmit}>
                     <div className={`flex items-center relative py-2 sm:py-3 px-2 sm:px-6 rounded-md  ${hasError.password === 1 ? "hasError" : hasError.password === 2 ? "good" : ""} bg-black bg-opacity-5 text-base sm:text-lg myInput`}>
                         <input
                             type={`${seePassord ? "password" : "text"}`}
-                            placeholder={t("reset_password.password_placeholder")}
+                            placeholder="Password"
                             className="peer outline-none border-none bg-transparent py-3 ml-1 flex-1 text-sm sm:text-base"
                             value={mainPasswordText}
                             onChange={(e) => setMainPasswordText(e.target.value)}
@@ -145,7 +144,7 @@ export default function ResetPasswordForm({user, resetKey}) {
                     <div className={`flex items-center relative py-2 sm:py-3 px-2 sm:px-6 rounded-md  ${hasError.password_confirm === 1 ? "hasError" : hasError.password_confirm === 2 ? "good" : ""} bg-black bg-opacity-5 text-base sm:text-lg myInput`}>
                         <input
                             type={`${seePassord2 ? "password" : "text"}`}
-                            placeholder={t("reset_password.password_placeholder_retype")}
+                            placeholder="Retype assword"
                             className="peer outline-none border-none bg-transparent py-3 ml-1 flex-1 text-sm sm:text-base"
                             value={confirmPasswordText}
                             onChange={(e) => setConfirmPasswordText(e.target.value)}
@@ -158,7 +157,7 @@ export default function ResetPasswordForm({user, resetKey}) {
                     <button type={canProceed ? "submit" : "button"} className={
                         `border rounded-md py-4 sm:py-5 grid place-items-center font-semibold ${canProceed? "cursor-pointer active:scale-95 active:opacity-40 hover:scale-[1.025] bg-themeGreen mix-blend-screen border-transparent" : "cursor-default opacity-50 border-black/20"}`
                     }>
-                        {!isLoading && <span className="nopointer"> {t("reset_password.password_change")}</span>}
+                        {!isLoading && <span className="nopointer">Change password</span>}
                         {isLoading && <Image src={"https://linktree.sirv.com/Images/gif/loading.gif"} width={25} height={25} alt="loading" className={canProceed? "mix-blend-multiply": "mix-blend-screen"} />}
                     </button>
                     {!isLoading && <span className="text-sm text-red-500 text-center">{errorMessage}</span>}
