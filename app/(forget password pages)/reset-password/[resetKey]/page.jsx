@@ -3,8 +3,10 @@ import { verifyResetKey } from "@/lib/authentication/verifyResetKey";
 import ResetPasswordForm from "./components/ResetPassword";
 import { Toaster } from "react-hot-toast";
 
-export default async function ResetPasswordPage({ params }) {
+// Import a server-side translation solution if available
+// Or create a ClientSideTranslation component for the error messages
 
+export default async function ResetPasswordPage({ params }) {
     try {
         const [userId, timePassed] = await verifyResetKey(params.resetKey);
         return (
@@ -14,18 +16,11 @@ export default async function ResetPasswordPage({ params }) {
             </>
         );
     } catch (error) {
-        if (error.known){
-            return (
-                <div className="p-8">
-                    {error.known} <Link href={"/login"} className="font-semibold text-themeGreen">Go back to login</Link>
-                </div>
-            );
+        // Using error components with client-side translation
+        if (error.known) {
+            return <ErrorWithLogin errorMessage={error.known} />;
         }
-        return (
-            <div className="p-8">
-                An error Occured <Link href={"/"} className="font-semibold text-themeGreen">Go to homepage</Link>
-            </div>
-        );
+        return <GenericError />;
     }
-
 }
+
