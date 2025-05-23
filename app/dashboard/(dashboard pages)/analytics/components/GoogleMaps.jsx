@@ -14,9 +14,6 @@ export default function GoogleMaps() {
         let isMounted = true;
 
         const initializeMap = async () => {
-            // Check if API key exists
-       
-
             try {
                 const loader = new Loader({
                     apiKey: "AIzaSyATAmD5lVb1jZe6pGoeZGF5OU-8-hrLeF4",
@@ -39,9 +36,9 @@ export default function GoogleMaps() {
                 const mapOptions = {
                     center: locationInMap,
                     zoom: 15,
-                    mapId: 'DEMO_MAP_ID', // Use a generic map ID for demo purposes
+                    mapId: 'DEMO_MAP_ID',
                     
-                    // Performance optimizations
+                    // Performance optimizations for your app
                     gestureHandling: 'greedy',
                     disableDefaultUI: false,
                     
@@ -50,13 +47,17 @@ export default function GoogleMaps() {
                     streetViewControl: true,
                     fullscreenControl: true,
                     zoomControl: true,
+                    
+                    // Additional performance settings
+                    clickableIcons: false,
+                    keyboardShortcuts: false,
                 };
 
                 // Create map
                 const map = new Map(mapRef.current, mapOptions);
                 mapInstanceRef.current = map;
 
-                // Create advanced marker (new recommended way)
+                // Create advanced marker
                 const marker = new AdvancedMarkerElement({
                     map,
                     position: locationInMap,
@@ -113,23 +114,13 @@ export default function GoogleMaps() {
                     </div>
                     <h3 className="text-lg font-semibold text-red-800 mb-2">Map Error</h3>
                     <p className="text-red-600 text-sm">{error}</p>
-                    {!process.env.NEXT_PUBLIC_MAPS_API_KEY && (
-                        <div className="mt-4 p-3 bg-yellow-100 border border-yellow-300 rounded text-left">
-                            <p className="text-sm text-yellow-800 font-medium">To fix this:</p>
-                            <ol className="text-xs text-yellow-700 mt-1 list-decimal list-inside">
-                                <li>Get a Google Maps API key from Google Cloud Console</li>
-                                <li>Add it to your .env.local file as NEXT_PUBLIC_MAPS_API_KEY</li>
-                                <li>Enable Maps JavaScript API in your Google Cloud project</li>
-                            </ol>
-                        </div>
-                    )}
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="relative">
+        <div className="relative gmap-container">
             {!isLoaded && (
                 <div className="absolute inset-0 bg-gray-100 rounded-lg flex items-center justify-center z-10">
                     <div className="flex flex-col items-center space-y-2">
@@ -139,13 +130,15 @@ export default function GoogleMaps() {
                 </div>
             )}
             <div 
-                className="h-[600px] w-full rounded-lg overflow-hidden border border-gray-200" 
+                className="h-[600px] w-full rounded-lg overflow-hidden border border-gray-200 gmap-container" 
                 ref={mapRef}
                 style={{
-                    // Ensure hardware acceleration for smooth performance
+                    // Force hardware acceleration and prevent interference
                     transform: 'translateZ(0)',
                     backfaceVisibility: 'hidden',
-                    willChange: 'transform'
+                    willChange: 'transform',
+                    // Prevent transitions on this element
+                    transition: 'none !important',
                 }}
             />
         </div>
