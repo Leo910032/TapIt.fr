@@ -14,7 +14,27 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+}
+
+/* Add transition only to specific elements, not maps */
+*:not([class*="gm-"]):not([class*="google-"]):not(.gmap-container *) {
   transition: .25s ease-in-out;
+}
+.gmap-container,
+.gmap-container *,
+[class*="gm-"],
+[class*="google-"] {
+  transition: none !important;
+}
+
+*::selection {
+  background-color: rgb(58, 224, 154);
+  color: #fff;
+}
+.dashboard *::selection {
+  background-color: #3AE09A;
+  color: #fff;
 }
 
 *::selection {
